@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="T3DDYUHD" property="og:title" />
+    <meta content="Hjemmeside" property="og:description" />
+    <meta content="https://cdn.discordapp.com/avatars/513639579715371009/0936665370f736a7ba3c3618f19abee5.png?size=1024" property="og:image" />
+    <meta content="#1db954" data-react-helmet="true" name="theme-color" />
+    <title>Spotify Status Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/avatars/513639579715371009/0936665370f736a7ba3c3618f19abee5.png?size=1024">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <video class="background" id="background" autoplay loop muted playsinline>
+        <source id="video-source" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay" id="overlay">
+        [click to enter]
+    </div>
+    <div class="privacy-footer" id="privacy-footer">
+        For at forbedre din oplevelse og forstå vores besøgendes aktivitet registrerer vi antallet af unikke besøg baseret på anonymiserede IP-adresser.
+        Dine oplysninger bruges udelukkende til statistik og deles ikke med tredjeparter.
+        Ved at klikke videre accepterer du vores brug af cookies og samtykker til indsamling af disse data i overensstemmelse med vores privatlivspolitik.
+    </div>
+
+    <div class="profile-container" id="profile-container">
+        <div class="profile-header" id="profile-header"></div>
+        <div class="profile-pic">
+            <img id="profile-pic" alt="Profile Picture">
+        </div>
+        <div class="username-container">
+            <div class="username" id="username">@</div>
+            <div class="last-seen" id="last-seen"></div>
+        </div>
+        <div class="status-indicator" id="status-indicator"></div>
+
+        <div class="social-icons" id="social-icons"></div>
+
+        <div class="viewer-count" id="viewer-count">0<i class="fas fa-eye"></i></div>
+    </div>
+
+    <div class="advertisement-box">
+        <img src="https://media.discordapp.net/attachments/1313891268257910855/1336393037798051993/logo.png?ex=67a59ec1&is=67a44d41&hm=8d04e3ad073ea5432449348f6d9f1ca61d5a91e93a0ab5c071308304623775c7&=&format=webp&quality=lossless&width=719&height=611" alt="Ad Logo" class="ad-logo">
+        <div class="ad-content">
+            <h3 class="ad-title"> </h3>
+            <p class="ad-description"> </p>
+        </div>
+    </div>
+
+    <div class="volume-container">
+        <div class="volume-icon" id="volume-icon"><i class="fas fa-volume-up"></i></div>
+    </div>
+
+    <div class="currently-playing" id="currently-playing">
+        <div class="currently-playing-info">
+            <img id="album-image" alt="Album Cover" class="album-cover">
+            <div class="currently-playing-text">
+                <h3 id="song-name">Song Name</h3>
+                <p id="artist-name">Artist Name</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="spotify-container" id="spotify-container" style="display: none;">
+        <img id="spotify-album" class="spotify-album" src="" alt="Album Cover">
+        <div class="spotify-header">
+            <span class="spotify-listening-text">Lytter til</span>
+        </div>
+        <div class="spotify-info">
+            <h3 id="spotify-title">Ingen musik afspilles</h3>
+            <p id="spotify-artist"></p>
+            <!-- <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+        </div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

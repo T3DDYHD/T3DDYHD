@@ -1,0 +1,514 @@
+@font-face {
+    font-family: 'DOTMBold';
+    src: url('font/DOTMBold.TTF') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DOTMBold", sans-serif;
+    overflow: hidden;
+    background-color: #000;
+    zoom: 125%;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    opacity: 100;
+    pointer-events: none;
+}
+
+.background.hidden {
+    opacity: 0;
+}
+
+#profile-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) perspective(1000px);
+    width: 80%;
+    max-width: 550px;
+    height: 300px;
+    border-radius: 20px;
+    background-color: rgba(167, 137, 217, 0.09);
+    border: 2px solid rgba(168, 137, 217, 0.55);
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-header {
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+}
+
+.profile-pic {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(168, 137, 217, 0.55);
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-indicator {
+    position: absolute;
+    right: 230px;
+    bottom: 38%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid rgba(168, 137, 217, 0.55);
+    background-color: rgb(168, 137, 217);
+    z-index: 10;
+    font-size: 20px;
+}
+
+.status-online {
+    background-color: #23A55A;
+    /* Green circle */
+    font-size: 22px;
+    /* Ensure the icon fits inside */
+    bottom: 38%;
+}
+
+.status-idle {
+    color: #F0B232;
+    /* Yellow circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    /* Ensure the icon fits inside */
+    bottom: 38%;
+}
+
+.status-dnd {
+    color: #ed4245;
+    /* Red circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-size: 22px;
+    /* Ensure the icon fits inside */
+    bottom: 38%;
+}
+
+.status-offline {
+    background-color: #747f8d;
+    /* Gray circle */
+    bottom: 40%;
+}
+
+.username {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    margin-top: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.social-icons a:hover {
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+}
+
+.viewer-count {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.viewer-count i {
+    margin-right: 0px;
+    font-size: 12px;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        height: 300px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    .username {
+        font-size: 18px;
+    }
+
+    .viewer-count {
+        font-size: 16px;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+
+    .status-indicator {
+        right: 240px;
+        bottom: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        width: 95%;
+    }
+
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+    }
+
+    .username {
+        font-size: 16px;
+    }
+
+    .viewer-count {
+        font-size: 14px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+    }
+
+    .reminder-box {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .status-indicator {
+        right: 150px;
+        width: 18px;
+        height: 18px;
+        font-size: 16px;
+    }
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(167, 137, 217, 0.09);
+    color: white;
+    font-family: 'DOTMBold', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.privacy-footer {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    color: rgba(168, 137, 217, 0.072);
+    font-size: 8px;
+    text-align: center;
+    line-height: 5px;
+    font-family: Arial, sans-serif;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.privacy-footer.hidden {
+    display: none;
+}
+
+.volume-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    align-items: center;
+    transition: width 0.3s ease;
+    border: 2px solid rgba(168, 137, 217, 0.55);
+    background-color: rgba(167, 137, 217, 0.09);
+    border-radius: 15px;
+    zoom: 135%;
+    display: none;
+}
+
+.volume-icon {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    font-size: 20px;
+    transition: background-color 0.2s;
+    height: 45px;
+    width: 45px;
+    zoom: 140%;
+}
+
+.currently-playing {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: auto;
+    max-width: 450px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid rgba(168, 137, 217, 0.55);
+    background-color: rgba(167, 137, 217, 0.09);
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    display: none;
+    align-items: center;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    zoom: 135%;
+}
+
+.currently-playing-info {
+    display: flex;
+    align-items: center;
+}
+
+.album-cover {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.currently-playing-text h3,
+.currently-playing-text p {
+    margin: 0;
+    color: #fff;
+}
+
+.currently-playing-text h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.currently-playing-text p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.username-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    margin-top: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.last-seen {
+    font-size: 14px;
+    color: rgb(167, 137, 217);
+    text-shadow: rgb(167, 137, 217) 0px 0px 16.5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.advertisement-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: calc(50% + 180px); /* Lidt under profile-container */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 550px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: rgba(167, 137, 217, 0.09);
+    border: 2px solid rgba(168, 137, 217, 0.55);
+    text-align: left;
+    color: #fff;
+    opacity: 100;
+}
+
+.advertisement-box.hidden {
+    opacity: 0;
+}
+
+.ad-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.ad-content {
+    flex: 1;
+}
+
+.ad-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(167, 137, 217);
+}
+
+.ad-description {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.spotify-container {
+    display: none; /* Skjules hvis ingen musik spilles */
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid rgba(168, 137, 217, 0.55);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(168, 137, 217, 0.55);
+    position: fixed; /* Fikserer elementet på skærmen */
+    bottom: 8px; /* Placerer det øverst */
+    left: 50%; /* Centrerer det horisontalt */
+    transform: translateX(-50%); /* Justerer elementet til at være præcist i midten */
+    z-index: 1000; /* Sørger for at den ligger ovenpå andre elementer */
+}
+
+.spotify-header {
+    position: absolute;
+    top: 0.20px; /* Placerer teksten tættere på bunden af albumcoveret */
+    left: 10px; /* Placerer teksten til venstre */
+    font-size: 12px; /* Mindre tekst */
+    color: #bbb;
+    font-weight: bold;
+}
+
+.spotify-container.hidden {
+    opacity: 0;
+}
+
+.spotify-album {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(168, 137, 217, 0.55);
+}
+
+.spotify-info {
+    flex: 1;
+    color: white;
+    margin-top: 10px;
+}
+
+#spotify-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(167, 137, 217);
+    left: 15px;
+}
+
+#spotify-artist {
+    font-size: 14px;
+    color: #bbb;
+    margin: 5px 0;
+    left: 15px;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #76c7c0;
+    width: 0%; /* Start width, bliver opdateret af JavaScript */
+    border-radius: 5px;
+}
+
+#current-time, #duration {
+    font-size: 12px;
+    color: white;
+}

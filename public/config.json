@@ -1,0 +1,45 @@
+{
+    "logo": "https://cdn.discordapp.com/avatars/513639579715371009/0936665370f736a7ba3c3618f19abee5.png?size=1024",
+    "username": "T3DDYUHD",
+    "discordId": "513639579715371009",
+    "currentlyPlaying": [
+        {
+            "songTitle": "Let Go",
+            "artistName": "Central Cee",
+            "albumCover": "https://r2.fivemanage.com/DoYALrlzky4ByIcbQU4B3/images/artworks-9fKz96YvAKkV-0-t500x500.jpg",
+            "videoSource": "https://r2.fivemanage.com/DoYALrlzky4ByIcbQU4B3/video/LetGo.mp4"
+        },
+        {
+            "songTitle": "Kongens Have",
+            "artistName": "Top Gunn",
+            "albumCover": "https://r2.fivemanage.com/DoYALrlzky4ByIcbQU4B3/images/ab67616d0000b273ad7dcd382f98b417eb1759c5.jpg",
+            "videoSource": "https://r2.fivemanage.com/DoYALrlzky4ByIcbQU4B3/video/TopGunn-KongensHave(OfficielVideo).mp4"
+        }
+    ],
+    "socialLinks": [
+        {
+            "icon": "fab fa-spotify",
+            "url": "https://open.spotify.com/user/31wd4x7dvgpqe5l22tzjb7dzs7uy",
+            "color": "rgb(167, 137, 217);",
+            "textshadow": "rgb(167, 137, 217) 0px 0px 16.5px;"
+        },
+        {
+            "icon": "fab fa-discord",
+            "url": "https://discord.com/users/513639579715371009",
+            "color": "rgb(167, 137, 217);",
+            "textshadow": "rgb(167, 137, 217) 0px 0px 16.5px;"
+        },
+        {
+            "icon": "fab fa-x-twitter",
+            "url": "https://x.com/t3ddyuhd",
+            "color": "rgb(167, 137, 217);",
+            "textshadow": "rgb(167, 137, 217) 0px 0px 16.5px;"
+        },
+        {
+            "icon": "fab fa-twitch",
+            "url": "https://twitch.tv/t3ddyuhd",
+            "color": "rgb(167, 137, 217);",
+            "textshadow": "rgb(167, 137, 217) 0px 0px 16.5px;"
+        }
+    ]
+}

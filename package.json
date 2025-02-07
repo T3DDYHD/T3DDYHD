@@ -1,0 +1,21 @@
+{
+    "name": "webprojekt",
+    "version": "1.0.0",
+    "description": "Et dynamisk webprojekt med Express og Axios",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "dependencies": {
+        "axios": "^1.7.9",
+        "crypto": "^1.0.1",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
